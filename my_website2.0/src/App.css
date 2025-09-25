@@ -1,0 +1,44 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  scroll-behavior: smooth; /* 👈 makes anchor links scroll smoothly */
+}
+
+/* Navbar styles */
+.navbar {
+  position: sticky;
+  top: 0;
+  background-color: #222;
+  padding: 1rem;
+  z-index: 1000;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.navbar a:hover {
+  color: #61dafb; /* React blue hover */
+}
+
+/* Section spacing */
+section {
+  padding: 4rem 2rem;
+  min-height: 100vh; /* each section fills viewport */
+}
+
+.hero {
+  text-align: center;
+  padding: 5rem 2rem;
+}
