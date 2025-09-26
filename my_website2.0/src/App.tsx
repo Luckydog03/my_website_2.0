@@ -28,10 +28,23 @@ function App() {
     return () => obs.disconnect()
   }, [])
 
-  // Smooth-scroll helper (optional; anchors work too)
+  // Smooth-scroll helper
   const onNavClick = (e: React.MouseEvent<HTMLAnchorElement>, id: SectionId) => {
     e.preventDefault()
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  }
+
+  function SkillCategory({ title, items }: { title: string; items: string[] }) {
+    return (
+      <article className="skill-card">
+        <h4>{title}</h4>
+        <ul className="skill-list">
+          {items.map((s) => (
+            <li key={s}>{s}</li>
+          ))}
+        </ul>
+      </article>
+    )
   }
 
   return (
@@ -71,6 +84,14 @@ function App() {
 
       {/* HERO */}
       <header id="home" className="section hero">
+        <img
+          src="/headshot-center-480.webp"
+          alt="Portrait of Anthony Donsereaux Jr."
+          className="avatar"
+          width={260}
+          height={260}
+          decoding="async"
+        />
         <h1>Anthony Donsereaux Jr.</h1>
         <p>Software Developer — Java · Python · C/C#/C++ · React/TS · SQL · Unity</p>
         <div className="links">
@@ -87,7 +108,7 @@ function App() {
         </div>
       </header>
 
-      {/* PROJECTS (Website style) */}
+      {/* PROJECTS */}
       <section id="projects" className="section">
         <h2>🚀 Projects</h2>
 
@@ -112,7 +133,7 @@ function App() {
           </p>
           <div className="actions">
             <a href="https://github.com/gschleich/Gamedev.js-Jam-2025" target="_blank" rel="noreferrer">GitHub Repo</a>
-            <a href="#" target="_blank" rel="noreferrer">Playable Demo</a>
+            <a href="https://bluegarrett.itch.io/ashesandascension" target="_blank" rel="noreferrer">Play Game</a>
           </div>
         </article>
 
@@ -124,12 +145,12 @@ function App() {
           </p>
           <div className="actions">
             <a href="https://github.com/gschleich/Brackeys-Game-Jam-2025.1-NCGW-" target="_blank" rel="noreferrer">GitHub Repo</a>
-            <a href="#" target="_blank" rel="noreferrer">Playable Demo</a>
+            <a href="https://bluegarrett.itch.io/flawlessfortress" target="_blank" rel="noreferrer">Play Game</a>
           </div>
         </article>
       </section>
 
-      {/* EXPERIENCE (Website style) */}
+      {/* EXPERIENCE */}
       <section id="experience" className="section">
         <h2>💼 Experience</h2>
 
@@ -162,6 +183,16 @@ function App() {
           </p>
         </article>
 
+        <article>
+          <h3>🧪 Natural Sciences College Counsil</h3>
+          <p> 
+            Advised the Dean’s office on new
+            academic policies and procedures,
+            influencing decisions affecting over 4,000
+            students. 
+          </p>
+        </article>
+
         <article className="item">
           <h3>📚 Coursework Projects</h3>
           <ul>
@@ -175,20 +206,49 @@ function App() {
             <li>
               <strong>Mixed Reality Design</strong> — VR game in <strong>Unreal Engine 5</strong>.
             </li>
-            <li>
+            
+            {/* <li>
               <strong>Cybersecurity · Databases · Algorithms · Applied Statistics</strong>.
-            </li>
+            </li> */}
           </ul>
         </article>
       </section>
 
-      {/* RESUME (download/view) */}
+      {/* RESUME */}
       <section id="resume" className="section">
         <h2>📄 Resume</h2>
-        <p>
-          View or download my latest resume.
-        </p>
-        <a className="button" href="\DonsereauxSwResume.pdf" target="_blank" rel="noreferrer">
+
+        <h3>Skills</h3>
+
+        <div className="skills-grid">
+          <SkillCategory
+            title="Languages"
+            items={['Java', 'Python', 'C', 'C++', 'C#', 'TypeScript', 'SQL', 'HTML/CSS']}
+          />
+          <SkillCategory
+            title="Frontend"
+            items={['React']}
+          />
+          <SkillCategory
+            title="Databases"
+            items={['MySQL']}
+          />
+          <SkillCategory
+            title="Tools"
+            items={['GitHub', 'VS Code', 'Postman', 'Anaconda']}
+          />
+          <SkillCategory
+            title="Game Development"
+            items={['Unity', 'Unreal Engine 5', 'GameMaker Studio 2']}
+          />
+          <SkillCategory
+            title="Professional"
+            items={['Agile & Scrum', 'Team Management', 'Time Management', 'Training', 'Teaching', 'Customer Service']}
+          />
+        </div>
+
+        <p>View or download my latest resume.</p>
+        <a className="button" href="/DonsereauxSwResume.pdf" target="_blank" rel="noreferrer">
           Open Resume (PDF)
         </a>
       </section>
