@@ -84,27 +84,67 @@ function App() {
 
       {/* HERO */}
       <header id="home" className="section hero">
-        <img
-          src="/headshot-center-480.webp"
-          alt="Portrait of Anthony Donsereaux Jr."
-          className="avatar"
-          width={260}
-          height={260}
-          decoding="async"
-        />
-        <h1>Anthony Donsereaux Jr.</h1>
-        <p>Software Developer — Java · Python · C/C#/C++ · React/TS · SQL · Unity</p>
-        <div className="links">
-        <a href="https://github.com/Luckydog03"
-          target= "_blank"
-        >
-          <GitHubIcon/>
-        </a>
-        <a href="https://www.linkedin.com/in/anthony-donsereaux-jr"
-          target='_blank'
-        >
-          <LinkedInIcon/>
-        </a>
+        <div className="hero-content">
+          <p className="eyebrow">Hello, I'm</p>
+
+          <h1>
+            Anthony <span>Donsereaux Jr.</span>
+          </h1>
+
+          <p className="hero-subtitle">
+            Software Developer focused on building practical, user-friendly applications
+            with React, TypeScript, Python, Java, SQL, and Unity.
+          </p>
+
+          <div className="links">
+            <a
+              className="primary-button"
+              href="#projects"
+              onClick={(e) => onNavClick(e, 'projects')}
+            >
+              View Projects
+            </a>
+
+            <a
+              className="secondary-button"
+              href="/DonsereauxSwResume.pdf"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Open Resume
+            </a>
+
+            <a
+              className="icon-link"
+              href="https://github.com/Luckydog03"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="GitHub profile"
+            >
+              <GitHubIcon />
+            </a>
+
+            <a
+              className="icon-link"
+              href="https://www.linkedin.com/in/anthony-donsereaux-jr"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="LinkedIn profile"
+            >
+              <LinkedInIcon />
+            </a>
+          </div>
+        </div>
+
+        <div className="avatar-wrap">
+          <img
+            src="/headshot-center-480.webp"
+            alt="Portrait of Anthony Donsereaux Jr."
+            className="avatar"
+            width={360}
+            height={360}
+            decoding="async"
+          />
         </div>
       </header>
 
@@ -155,6 +195,22 @@ function App() {
         <h2>💼 Experience</h2>
 
         <article className="item">
+          <h3>💪 More Coaching - Web Developer</h3>
+          <p className="date">Mar 2026 - Current</p>
+          <p>Sole engineer responsible for end-to-end UI/UX design, front-end development, and backend integration for email request handling.
+            Designed and implemented the website architecture independently, ensuring usability,responsiveness, and maintainability.
+          </p>
+        </article>
+
+        <article className="item">
+          <h3>🍳 Pelican Lakes The Lodge - Lead/Pastry Chef</h3>
+          <p className="date">Mar 2025 - Mar 2026</p>
+          <p>Lead daily kitchen operations in a high-volume restaurant environment while maintaining quality, consistency, and efficiency.
+            Developed and introduced dessert menu offerings to expand the restaurant’s culinary program.
+          </p>
+        </article>
+
+        <article className="item">
           <h3>🔥 FireBird Technologies — Tech Consultant Intern</h3>
           <p className="date">Dec 2024 – Feb 2025</p>
           <p>
@@ -183,7 +239,7 @@ function App() {
           </p>
         </article>
 
-        <article>
+        <article className="item">
           <h3>🧪 Natural Sciences College Counsil</h3>
           <p> 
             Advised the Dean’s office on new
