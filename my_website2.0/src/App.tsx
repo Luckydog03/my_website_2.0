@@ -3,14 +3,14 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import './App.css'
 
-type SectionId = 'home' | 'projects' | 'experience' | 'resume'
+type SectionId = 'home' | 'about' |'projects' | 'experience' | 'resume'
 
 function App() {
   const [active, setActive] = useState<SectionId>('home')
 
   // Track which section is in view to highlight the nav
   useEffect(() => {
-    const ids: SectionId[] = ['home', 'projects', 'experience', 'resume']
+    const ids: SectionId[] = ['home', 'about', 'projects', 'experience', 'resume']
     const sections = ids
       .map((id) => document.getElementById(id))
       .filter((el): el is HTMLElement => !!el)
@@ -57,6 +57,13 @@ function App() {
           className={active === 'home' ? 'active' : ''}
         >
           Home
+        </a>
+        <a
+          href="#about"
+          onClick={(e) => onNavClick(e, 'about')}
+          className={active === 'about' ? 'active' : ''}
+        >
+          About
         </a>
         <a
           href="#projects"
@@ -147,6 +154,61 @@ function App() {
           />
         </div>
       </header>
+
+      {/* ABOUT ME */}
+      <section id="about" className="section about-section">
+        <div className="about-card">
+          <div className="about-main">
+            <p className="section-label">About Me</p>
+            <h2>A little about who I am</h2>
+
+            <p>
+              I&apos;m a Computer Science graduate from Colorado State University with a
+              background in software development, teaching, and team leadership. I enjoy
+              building clean, practical applications and solving problems that connect
+              technical ideas to real-world use.
+            </p>
+          </div>
+
+          <div className="about-details">
+            <article className="about-detail">
+              <span className="about-icon">🎓</span>
+              <div>
+                <h3>Education</h3>
+                <p>B.S. Computer Science</p>
+                <p>Minor in Business Administration</p>
+              </div>
+            </article>
+
+            <article className="about-detail">
+              <span className="about-icon">💻</span>
+              <div>
+                <h3>Focus</h3>
+                <p>Full-Stack Development</p>
+                <p>React · TypeScript · Python · SQL</p>
+              </div>
+            </article>
+
+            <article className="about-detail">
+              <span className="about-icon">📍</span>
+              <div>
+                <h3>Location</h3>
+                <p>Colorado</p>
+                <p>Open to software roles</p>
+              </div>
+            </article>
+
+            <article className="about-detail">
+              <span className="about-icon">⭐</span>
+              <div>
+                <h3>Interests</h3>
+                <p>Music · Cooking · Games</p>
+                <p>Anime · Game Development</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
 
       {/* PROJECTS */}
       <section id="projects" className="section">
